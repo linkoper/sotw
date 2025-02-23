@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de Creación de Páginas Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+    <style>
+        * {
+            cursor: none;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+            overflow-x: hidden;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s linear;
+            z-index: 1000;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        .image-gallery img {
+            width: 45%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let cursor = document.createElement("div");
+            cursor.classList.add("custom-cursor");
+            document.body.appendChild(cursor);
+            
+            document.addEventListener("mousemove", function(e) {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Creación de Páginas Web Sencillas</h1>
+        <p>Servicio profesional por solo $10</p>
+    </header>
+    <section id="about">
+        <h2>Sobre Mi</h2>
+        <p>Tengo 5 meses de experiencia creando páginas web sencillas y funcionales.</p>
+    </section>
+    <section class="image-gallery">
+        <h2>Ejemplos de Trabajo</h2>
+        <img src="https://static.javatpoint.com/blog/images/what-is-software.png" alt="Ejemplo de software">
+        <img src="https://concepto.de/wp-content/uploads/2015/03/software-1-e1550080097569.jpg" alt="Concepto de software">
+    </section>
+    <section id="contact">
+        <h2>Contrata Mi Servicio</h2>
+        <p>Envíame un correo manualmente a:</p>
+        <p class="email-info">clavijomelqui43@gmail.com</p>
+    </section>
+    <section id="login-section">
+        <h2>Inicia sesión con Google para comentar</h2>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </section>
+    <section id="comment-section" class="comments" style="display: none;">
+        <h2>Comentarios</h2>
+        <p>Estás comentando como: <span id="user-name"></span></p>
+        <textarea id="comment" placeholder="Escribe tu comentario aquí..."></textarea>
+        <button onclick="addComment()">Publicar Comentario</button>
+        <div id="comment-list" class="comment-list"></div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Servicio de Creación de Páginas Web</p>
+    </footer>
+</body>
+</html>
